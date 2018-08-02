@@ -41,6 +41,10 @@ var config = {
     var trainDestination = $("#destination-input").val().trim();
     var trainFirstTime = $("#first-train-input").val().trim();
     var trainFrequency = $("#frequency-input").val().trim();
+    // trim ":" from Frequency in minutes
+    if (trainFrequency.substring(0, 1) == ':') {
+      trainFrequency = trainFrequency.substring(1);
+    }
       
   
     // Creates local "temporary" object for holding train data
