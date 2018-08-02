@@ -27,7 +27,7 @@ function successMessage() {
 
 //This function converts from military to 12 hr am/pm 
 function formatTime() {
-  var formatTime = moment(trainFirstTime, 'HH:mm').format('hh:mm a');
+  var formatTime = moment(nextTrain, 'HH:mm').format('hh:mm a');
   return formatTime;
 }
 
@@ -56,6 +56,7 @@ function calculateTime() {
   // Next Train
   nextTrain = moment().add(tMinutesTillTrain, "minutes");
   console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+   
 
 }
 
@@ -137,19 +138,28 @@ database.ref().on("child_added", function (childSnapshot) {
   console.log(trainFirstTime);
   console.log(trainFrequency);
 
-  // perform Prettify here
-  var trainFirstTimeFmt = formatTime();
-  console.log(trainFirstTimeFmt);
-
 
   // Calculate arrival time and convert date from military time
   calculateTime();
 
+  // perform Prettify here
+  var nextTrainPretty = formatTime();
+  // console.log(trainFirstTimePretty);
+
 
   // Create the new row
+  var newRow = $("<tr>").append(
+    $("<td>").text(trainName),
+    $("<td>").text(trainDestination),
+    $("<td>").text(trainFrequency),
+    $("<td>").text(nextTrainPretty),
+    $("<td>").text(tMinutesTillTrain),
+   
+  );
 
 
-  // Append the new row to the table here
+  // Append the new row to the table
+  $("#train-table > tbody").append(newRow);
 
 
 });
