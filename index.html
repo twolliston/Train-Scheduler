@@ -20,22 +20,33 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<style>
-.jumbotron {
-    background-image: url("smart-station.png");
-    background-repeat: no-repeat center center;
-    height: 300px;
-    width: 100%;
-    /* background-position: right top; */
-}
+  <style>
+    .jumbotron {
+      background-image: url("smart-station.png");
+      background-repeat: no-repeat center center;
+      height: 300px;
+      width: 100%;
+    }
 
-h1 {
+    h1 {
+      margin-top: 48px;
+      color: white;
+      font-size: 40px;
+    }
 
-  margin-top: 48px;
-  color: white;
-  font-size: 40px;
-}
-</style>
+    #myModal {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 820px;
+      box-sizing: border-box;
+      background: rgba(0,0,0,0.5);
+      padding: 35px;
+
+    }
+  </style>
 
 </head>
 
@@ -46,14 +57,9 @@ h1 {
 
     <!-- Jumbotron -->
     <div class="jumbotron">
-      <h1 class="text-center">SMART STATIONS IN THE HEARTOF EACH CITY</h1>
-      <!-- <h3 class="text-center">A Comprehensive Summary of Train Schedule Times</h3> -->
+      <h1 class="text-center">SMART STATIONS IN THE HEARTOF EACH CITY</h1>>
     </div>
 
-    // display Success message
-    <div class="alert alert-success" id="success" role="alert">
-      Train Schedule added successfully!
-    </div>
 
     <div class="row">
 
@@ -90,6 +96,11 @@ h1 {
       <div class="modal-dialog">
         <div class="modal-content">
 
+          <!-- display Success message -->
+          <div class="alert alert-success" id="success" role="alert">
+            Train schedule added successfully!
+          </div>
+
           <!-- Modal Header -->
           <div class="modal-header">
             <h4 class="modal-title">Add New Train</h4>
@@ -99,43 +110,43 @@ h1 {
           <!-- Modal body -->
           <div class="modal-body">
 
-              <div class="row">
-                  <div class="col-md-12">
-            
-                    <!-- Add Employee  -->
-                    <div class="card mb-4 p-4">
-                      <div class="card-body">
-                        <!-- <h3 class="card-title">Add New Train</h3> -->
-            
-                        <!-- Entry Form -->
-                        <form>
-                          <div class="form-group row">
-                            <label for="train-name-input">Train Name</label>
-                            <input class="form-control" id="train-name-input" placeholder="train" type="text">
-                          </div>
-            
-                          <div class="form-group row">
-                            <label for="destination-input">Destination</label>
-                            <input class="form-control" id="destination-input" placeholder="destination" type="text">
-                          </div>
-            
-                          <div class="form-group row">
-                            <label for="first-train-input">First Train (HH:mm-military time)</label>
-                            <input class="form-control" id="first-train-input" placeholder="12:00" type="text">
-                          </div>
-            
-                          <div class="form-group row">
-                            <label for="frequency-input">Frequency (min)</label>
-                            <input class="form-control" id="frequency-input" placeholder=":00" type="text">
-                          </div>
-            
-                          <button class="btn btn-primary float-left" id="add-train-btn">Submit</button>
-                        </form>
-            
+            <div class="row">
+              <div class="col-md-12">
+
+                <!-- Add Employee  -->
+                <div class="card mb-4 p-4">
+                  <div class="card-body">
+                    <!-- <h3 class="card-title">Add New Train</h3> -->
+
+                    <!-- Entry Form -->
+                    <form>
+                      <div class="form-group row">
+                        <label for="train-name-input">Train Name</label>
+                        <input class="form-control" id="train-name-input" placeholder="train" type="text">
                       </div>
-                    </div>
+
+                      <div class="form-group row">
+                        <label for="destination-input">Destination</label>
+                        <input class="form-control" id="destination-input" placeholder="destination" type="text">
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="first-train-input">First Train (HH:mm-military time)</label>
+                        <input class="form-control" id="first-train-input" placeholder="12:00" type="text">
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="frequency-input">Frequency (min)</label>
+                        <input class="form-control" id="frequency-input" placeholder=":00" type="text">
+                      </div>
+
+                      <button class="btn btn-primary float-left" id="add-train-btn">Submit</button>
+                    </form>
+
                   </div>
                 </div>
+              </div>
+            </div>
           </div>
 
           <!-- Modal footer -->
