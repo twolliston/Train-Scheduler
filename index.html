@@ -40,10 +40,10 @@
       left: 50%;
       transform: translate(-50%, -50%);
       width: 600px;
-      height: 820px;
+      height: 800px;
       box-sizing: border-box;
-      background: rgba(0,0,0,0.5);
-      padding: 35px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px;
 
     }
   </style>
@@ -101,6 +101,11 @@
             Train schedule added successfully!
           </div>
 
+          <!-- display error message -->
+          <div class="alert alert-danger" id="error" role="alert">
+            <strong!>Blanks</strong> Invalid Try Again!
+          </div>
+
           <!-- Modal Header -->
           <div class="modal-header">
             <h4 class="modal-title">Add New Train</h4>
@@ -122,22 +127,22 @@
                     <form>
                       <div class="form-group row">
                         <label for="train-name-input">Train Name</label>
-                        <input class="form-control" id="train-name-input" placeholder="train" type="text">
+                        <input class="form-control" id="train-name-input" placeholder="my trian" type="text" required>
                       </div>
 
                       <div class="form-group row">
                         <label for="destination-input">Destination</label>
-                        <input class="form-control" id="destination-input" placeholder="destination" type="text">
+                        <input class="form-control" id="destination-input" placeholder="my city" type="text" required>
                       </div>
 
                       <div class="form-group row">
                         <label for="first-train-input">First Train (HH:mm-military time)</label>
-                        <input class="form-control" id="first-train-input" placeholder="12:00" type="text">
+                        <input class="form-control" id="first-train-input" placeholder="12:00" type="text" required>
                       </div>
 
                       <div class="form-group row">
                         <label for="frequency-input">Frequency (min)</label>
-                        <input class="form-control" id="frequency-input" placeholder=":00" type="text">
+                        <input class="form-control" id="frequency-input" placeholder=":00" type="text" required>
                       </div>
 
                       <button class="btn btn-primary float-left" id="add-train-btn">Submit</button>

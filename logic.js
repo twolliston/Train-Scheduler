@@ -25,6 +25,16 @@ function successMessage() {
   $('#success').slideUp(1000);
 }
 
+// Hide success message
+$('#error').hide();
+
+//This function displays success message
+function errorMessage() {
+  $('#error').slideDown(1000);
+  $('#error').delay(3000);
+  $('#error').slideUp(1000);
+}
+
 //This function converts from military to 12 hr am/pm 
 function formatTime() {
   var formatTime = moment(nextTrain, 'HH:mm').format('hh:mm a');
@@ -80,12 +90,18 @@ var database = firebase.database();
 $("#add-train-btn").on("click", function (event) {
   event.preventDefault();
 
-
   // Grabs user input
   var trainName = $("#train-name-input").val().trim();
   var trainDestination = $("#destination-input").val().trim();
   var trainFirstTime = $("#first-train-input").val().trim();
   var trainFrequency = $("#frequency-input").val().trim();
+
+  if (!trainName || !trainDestination || !trainFirstTime || !trainFrequency) {
+
+  // alert("error if train information is blank");
+  errorMessage();
+  } else { 
+  
   // trim ":" from Frequency in minutes
   if (trainFrequency.substring(0, 1) == ':') {
     trainFrequency = trainFrequency.substring(1);
@@ -119,6 +135,9 @@ $("#add-train-btn").on("click", function (event) {
   $("#destination-input").val("");
   $("#first-train-input").val("");
   $("#frequency-input").val("");
+
+}
+
 });
 
 
